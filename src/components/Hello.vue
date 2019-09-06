@@ -2,7 +2,7 @@
   <div class="well">
     <div class="row">
       <div class="col-sm-5 text-right">
-        <img class="logo" src="../assets/logo.png">
+        <img class="logo" src="../assets/img/logo.png">
       </div>
       <div class="col-sm-7 text-left">
         <h1 v-translate>Hello Vue !</h1>

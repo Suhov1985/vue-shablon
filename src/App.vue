@@ -49,32 +49,34 @@
     </p>
     <hr />
     <h4> Build an amazing application ! </h4>
+    <h2 class="text-center">Tovari</h2>
+    <img :src="posts[3].imageUrl" alt="img">
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar'
+import axios from 'axios'
 
 export default {
-  components: { Navbar }
+  components: { Navbar },
+  data() {
+      return {
+          posts: [],
+          errors: []
+      }
+  },
+  created() {
+    axios.get(`http://5d7235535acf5e0014730be7.mockapi.io/api/products`)
+    .then(response => {
+        // JSON responses are automatically parsed.
+        console.log(response.data)
+
+        this.posts = response.data
+    })
+    .catch(e => {
+        this.errors.push(e)
+    })
+  }
 }
 </script>
-
-<style lang="sass">
-
-  // Bootstrap
-  $icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
-  $link-color: #42b983;
-  $brand-success: #42b983;
-  @import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
-
-  // font awesome
-  $fa-font-path: '../node_modules/font-awesome/fonts/';
-  @import 'node_modules/font-awesome/scss/font-awesome';
-
-  //some styling adaptations
-  h1
-    color: #42b983
-  p
-    text-align: justify
-</style>

@@ -4,9 +4,17 @@
 
 ## Build Setup
 
+
 ``` bash
 # install dependencies
 npm install
+
+# uninstall sass
+# install sass
+
+# install dependencies
+npm install file-loader --save
+npm install url-loader --save
 
 # serve with hot reload at localhost:8080
 npm run dev
